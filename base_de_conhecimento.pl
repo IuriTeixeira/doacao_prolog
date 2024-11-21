@@ -72,8 +72,6 @@ idade(jose,100).
 idade(carlos,67).
 idade(telma,48).
 
-%fatos
-
 %compativel
 compativel(X,Y) :- tiposanguineo(X,a), tiposanguineo(Y,a).
 compativel(X,Y) :- tiposanguineo(X,a), tiposanguineo(Y,ab).
