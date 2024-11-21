@@ -1,5 +1,5 @@
 from pyswip import Prolog
-Prolog.consult("lista3.pl")
+Prolog.consult("base_de_conhecimento.pl")
 
 import wx
 import wx.grid
