@@ -24,7 +24,7 @@ class MyFrame(wx.Frame):
         super(MyFrame, self).__init__(parent, title=title, size=(800, 600))
 
         # Set icon for the frame
-        #self.SetIcon(wx.Icon("icon.png"))
+        self.SetIcon(wx.Icon("resources/icon.ico"))
 
         # Initialize panel
         nb = wx.Notebook(self)
@@ -95,13 +95,17 @@ class Consulta(wx.Panel):
         self.tabela.SetColLabelValue(3,"Peso")
         self.tabela.SetColLabelValue(4,"Idade")
 
-        grid.Add(self.tabela, pos=(6,0))
+        grid.Add(self.tabela, pos=(6,0), span=(1,4))
         
         hSizer.Add(grid, 0, wx.ALIGN_CENTER, 10)
         mainSizer.Add(hSizer, 0, wx.ALIGN_CENTER, 10)
         self.SetSizerAndFit(mainSizer)
 
     def EvtClickReceptor(self,event):
+        #remove a seleção das outras comboboxes
+        self.editReceptor.SetValue('')
+        self.editRH.SetValue('')
+        self.editTipo.SetValue('')
         #limpa a tabela
         for i in range(14):
             for j in range(5):
@@ -118,6 +122,10 @@ class Consulta(wx.Panel):
             k+=1
         q.closeQuery()
     def EvtClickDoador(self,event):
+        #remove a seleção das outras comboboxes
+        self.editDoador.SetValue('')
+        self.editRH.SetValue('')
+        self.editTipo.SetValue('')
         #limpa a tabela
         for i in range(14):
             for j in range(5):
@@ -134,6 +142,10 @@ class Consulta(wx.Panel):
             k+=1
         q.closeQuery()
     def EvtClickTipo(self, event):
+        #remove a seleção das outras comboboxes
+        self.editReceptor.SetValue('')
+        self.editRH.SetValue('')
+        self.editDoador.SetValue('')
         #limpa a tabela
         for i in range(14):
             for j in range(5):
@@ -150,6 +162,10 @@ class Consulta(wx.Panel):
             k+=1
         q.closeQuery()
     def EvtClickRH(self,event):
+        #remove a seleção das outras comboboxes
+        self.editReceptor.SetValue('')
+        self.editDoador.SetValue('')
+        self.editTipo.SetValue('')
         #limpa a tabela
         for i in range(14):
             for j in range(5):
