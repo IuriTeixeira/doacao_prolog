@@ -90,3 +90,24 @@ rhcomp(X,Y) :- fatorrh(X,-), fatorrh(Y,-).
 
 %podedoar
 podedoar(X,Y) :- compativel(X,Y), rhcomp(X,Y), idade(X,I), I >= 18, peso(X,P), P > 50, dif(X,Y).
+podedoargenerico(X) :- podedoar(X,Y), X@<Y.
+
+/*Exemplos para as perguntas exigidas na lista:
+
+1. Quem está apto a doar sangue para alguém ?
+
+podedoargenerico(X)
+
+2. Para quem Fulano pode doar ou receber sangue ?
+
+podedoar(joao,Y). <-- para quem joao pode doar
+podedoar(X,joao). <-- de quem joao pode receber
+
+3. Quem possuí determinado tipo sanguíneo?
+tiposanguineo(X,a). <-- quem possui sangue tipo A
+
+4. Quem é doador de fator RH+ ou RH-?
+fatorrh(X,+). <-- quem tem RH+
+fatorrh(X,-). <-- quem tem RH-
+
+*/
